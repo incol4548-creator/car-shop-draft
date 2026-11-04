@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>관리자 화면 시안</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/theme.js"></script>
+</head>
+<body data-page="admin">
+<div class="admin" data-admin>
+  <aside class="admin-side">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>[상호명] 관리</a>
+    <div class="admin-tabs" role="tablist" aria-label="관리 메뉴">
+      <button class="admin-tab" role="tab" aria-selected="true" data-tab="inbox">접수 내역 <span class="badge" data-badge></span></button>
+      <button class="admin-tab" role="tab" aria-selected="false" data-tab="catalog">품목 · 제품</button>
+      <button class="admin-tab" role="tab" aria-selected="false" data-tab="cases">시공 사례</button>
+      <button class="admin-tab" role="tab" aria-selected="false" data-tab="settings">업체 정보</button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <section data-pane="inbox">
+      <h1>접수 내역</h1>
+      <p class="sub">새 견적 신청이 오면 메일과 함께 이곳에 표시됩니다. 아래 상태를 바꿔보세요.</p>
+      <div class="stat-row">
+        <div class="stat"><b data-stat-new></b><span>신규</span></div>
+        <div class="stat"><b data-stat-talk></b><span>상담중</span></div>
+        <div class="stat"><b data-stat-done></b><span>완료</span></div>
+      </div>
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>접수</th><th>이름</th><th>연락처</th><th>차량</th><th>희망 상품</th><th>희망일</th><th>상태</th></tr></thead>
+          <tbody data-rows></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section data-pane="catalog" hidden>
+      <div class="row-head">
+        <div><h1>품목 · 제품</h1><p class="sub" style="margin:0">여기서 바꾼 내용이 소개 페이지와 견적 폼에 함께 반영됩니다.</p></div>
+        <button type="button" class="btn btn-accent btn-sm">+ 품목 추가</button>
+      </div>
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>분류</th><th>품목</th><th>작업 내용</th><th></th></tr></thead>
+          <tbody data-catalog></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section data-pane="cases" hidden>
+      <h1>시공 사례</h1>
+      <p class="sub">시공 전후 사진과 설명을 올리면 사례 페이지에 바로 게시됩니다.</p>
+      <div class="admin-cases" data-admin-cases></div>
+    </section>
+
+    <section data-pane="settings" hidden>
+      <h1>업체 정보</h1>
+      <p class="sub">사이트 전체에 표시되는 정보와 알림 받을 메일 주소입니다.</p>
+      <form class="settings" onsubmit="return false">
+        <div class="field"><label for="s-name">상호명</label><input id="s-name" placeholder="입력 필요"></div>
+        <div class="grid-2">
+          <div class="field"><label for="s-tel">전화번호</label><input id="s-tel" placeholder="입력 필요"></div>
+          <div class="field"><label for="s-mail">알림 받을 이메일</label><input id="s-mail" placeholder="입력 필요"></div>
+        </div>
+        <div class="field"><label for="s-addr">주소</label><input id="s-addr" placeholder="입력 필요"></div>
+        <div class="field"><label for="s-hours">영업시간</label><input id="s-hours" placeholder="입력 필요"></div>
+        <div class="field"><label for="s-logo">로고</label><input id="s-logo" type="file" accept="image/*"></div>
+        <div><button type="button" class="btn btn-accent">저장</button></div>
+      </form>
+    </section>
+  </main>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>
