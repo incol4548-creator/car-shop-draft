@@ -94,27 +94,20 @@ function renderChrome() {
   const page = document.body.dataset.page;
   const bar = document.createElement("div");
   bar.className = "draft-bar";
-  const theme = document.documentElement.dataset.theme;
-  const themeUrl = (v) => {
-    const url = new URL(location.href);
-    url.searchParams.set("v", v);
-    return url.href;
-  };
-  const themes = [["a", "A 작업 도면"], ["b", "B 쇼룸"], ["c", "C 전문점"]];
-  bar.innerHTML = `<span>디자인 시안입니다. 품목은 블로그 기준 초안이고, 연락처와 접수 내역은 예시입니다.</span>
-    <span class="switcher">${themes
-      .map(([v, label]) => `<a href="${themeUrl(v)}" data-keep${v === theme ? ' aria-current="true"' : ""}>${label}</a>`)
-      .join("")}</span>`;
+  bar.textContent = "기본 틀 확인용 시안입니다. 품목은 블로그 기준 초안이고, 사진, 연락처, 접수 내역은 예시입니다.";
   document.body.prepend(bar);
 
-  // 페이지를 옮겨도 고른 시안을 유지한다.
-  document.addEventListener("click", (e) => {
-    const a = e.target.closest("a[href]");
-    if (!a || a.hasAttribute("data-keep") || !a.getAttribute("href").includes(".html")) return;
-    const url = new URL(a.href);
-    url.searchParams.set("v", theme);
-    a.href = url.href;
-  });
+  // 주소에 시안을 지정해 열었으면 페이지를 옮겨도 유지한다.
+  const pinned = new URLSearchParams(location.search).get("v");
+  if (pinned) {
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest("a[href]");
+      if (!a || !a.getAttribute("href").includes(".html")) return;
+      const url = new URL(a.href);
+      url.searchParams.set("v", pinned);
+      a.href = url.href;
+    });
+  }
 
   const head = document.querySelector("[data-head]");
   if (head) {
