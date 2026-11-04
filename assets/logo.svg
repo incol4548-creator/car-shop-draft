@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 297 44" role="img" aria-label="JUNCAR">
+  <title>JUNCAR</title>
+  <g fill="none" stroke="#111" stroke-width="9" stroke-linejoin="miter" stroke-miterlimit="2">
+    <path d="M36 3.5V28Q36 36 28 36H12Q4 36 4 28"/>
+    <path d="M54 3.5V28Q54 36 62 36H78Q86 36 86 28V3.5"/>
+    <path d="M104 40.5V8L136 36V3.5"/>
+    <path d="M190 8H164Q156 8 156 16V28Q156 36 164 36H190"/>
+    <path d="M208 40.5V16Q208 8 216 8H232Q240 8 240 16V40.5M208 26H240"/>
+    <path d="M258 40.5V8H284Q292 8 292 16V18Q292 26 284 26H258M276 26L292 40.5"/>
+  </g>
+</svg>

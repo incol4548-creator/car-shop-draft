@@ -1,37 +1,62 @@
-// 시안 전용 예시 데이터. 실제 서비스에서는 관리자 페이지에서 입력한 값으로 대체된다.
+// 시안 전용 데이터. 품목과 사례 제목은 업체 블로그 캡처 기준 초안이며,
+// 실제 서비스에서는 관리자 페이지에서 입력한 값으로 대체된다.
 const CATEGORIES = [
   {
-    id: "exterior",
-    name: "외장 · 보호",
-    desc: "차량 외관을 보호하고 관리하는 작업입니다.",
+    id: "tinting",
+    name: "썬팅",
+    desc: "넥스가드 메딕·CBR 등 열차단 필름 시공과 재시공을 합니다.",
     items: [
-      { id: "tint", name: "틴팅", work: "전면·측후면 유리에 필름 시공", range: "전 차종, 전면·측후면 부분 시공 가능" },
-      { id: "ppf", name: "PPF", work: "도장면에 투명 보호 필름 시공", range: "후드, 범퍼, 도어컵 부분 시공부터 전체 시공까지" },
-      { id: "coating", name: "유리막 코팅", work: "세정·폴리싱 후 코팅제 도포", range: "신차, 출고 후 차량 모두 가능" },
-      { id: "wrap", name: "랩핑", work: "색상·질감 변경용 필름 시공", range: "루프, 사이드미러 부분 시공부터 전체 시공까지" }
+      { id: "tint", name: "썬팅 시공", work: "넥스가드 메딕·CBR 등 열차단 필름 시공", cases: "아반떼 CN7, 더뉴모하비" },
+      { id: "retint", name: "썬팅 재시공", work: "기존 필름을 제거하고 새 필름으로 시공", cases: "아반떼 MD, 더뉴모하비" },
+      { id: "tintremove", name: "기존 필름 제거", work: "뒷유리 열선 손상에 유의해 기존 필름 제거", cases: "YF쏘나타 뒷유리, 아반떼 CN7" }
     ]
   },
   {
-    id: "electronics",
-    name: "전자 장비",
-    desc: "주행과 안전을 돕는 장비를 설치합니다.",
+    id: "blackbox",
+    name: "블랙박스",
+    desc: "승용차부터 화물차까지 블랙박스 설치와 교체를 합니다.",
     items: [
-      { id: "blackbox", name: "블랙박스", work: "전후방 카메라 장착, 배선 매립", range: "2채널 기준, 상시 녹화 전원 연결 가능" },
-      { id: "navi", name: "내비게이션", work: "순정 화면 연동 또는 매립 설치", range: "차종별 호환 여부 상담 후 진행" },
-      { id: "hipass", name: "하이패스", work: "룸미러형·단말기형 설치", range: "전 차종 가능" },
-      { id: "rearcam", name: "후방카메라", work: "카메라 장착 및 화면 연동", range: "순정 화면 연동은 차종별 확인" },
-      { id: "audio", name: "오디오", work: "스피커, 앰프 교체 및 튜닝", range: "도어 스피커 교체부터 시스템 구성까지" }
+      { id: "bb2ch", name: "2채널 블랙박스", work: "지넷시스템, 아이나비 등 전후방 블랙박스 설치", cases: "지넷시스템 Z8, 올뉴모닝" },
+      { id: "bb4ch", name: "4채널 블랙박스", work: "전후방과 측면까지 녹화하는 다채널 설치", cases: "BMW X4, 화물차" },
+      { id: "bbswap", name: "블랙박스 교체", work: "기존 블랙박스 탈거 후 새 제품으로 교체", cases: "올뉴모닝" }
     ]
   },
   {
-    id: "interior",
-    name: "실내 · 편의",
-    desc: "실내 환경과 사용 편의를 높이는 작업입니다.",
+    id: "av",
+    name: "순정 AV · 올인원",
+    desc: "순정 AV 수리와 안드로이드 올인원 교체를 합니다.",
     items: [
-      { id: "soundproof", name: "방음", work: "도어, 바닥, 휠하우스 방음재 시공", range: "부위별 선택 시공 가능" },
-      { id: "seat", name: "가죽 시트", work: "시트 커버 교체", range: "차종별 패턴 확인 후 진행" },
-      { id: "trunk", name: "전동 트렁크", work: "전동 개폐 장치 장착", range: "지원 차종 상담 후 진행" },
-      { id: "ambient", name: "앰비언트 라이트", work: "실내 조명 배선 및 장착", range: "도어, 대시보드 라인 시공" }
+      { id: "allinone", name: "안드로이드 올인원", work: "순정 화면을 안드로이드 올인원으로 교체", cases: "투싼 IX, 카니발" },
+      { id: "avrepair", name: "순정 AV 수리", work: "화면 꺼짐 등 순정 AV 고장 점검과 수리", cases: "코란도C, 대우 프리마" }
+    ]
+  },
+  {
+    id: "rearcam",
+    name: "후방카메라",
+    desc: "승용차 순정 카메라 교체부터 화물차 모니터 설치까지 합니다.",
+    items: [
+      { id: "camswap", name: "후방카메라 교체", work: "고장 난 후방카메라 점검과 교체", cases: "현대 포터2" },
+      { id: "camir", name: "적외선 후방카메라", work: "어두운 곳에서도 잘 보이는 적외선 카메라 설치", cases: "마이티, 대우 프리마" },
+      { id: "camtruck", name: "화물차 카메라 · 모니터", work: "화물차 후방카메라와 7인치 거치형 모니터 설치", cases: "포터, 마이티" }
+    ]
+  },
+  {
+    id: "remote",
+    name: "원격시동 · 스마트키",
+    desc: "스마트폰 원격시동과 순정형 원격시동을 설치합니다.",
+    items: [
+      { id: "remotephone", name: "스마트폰 원격시동", work: "스마트폰 앱으로 시동을 거는 장치 설치", cases: "포터2 LPG" },
+      { id: "remoteoem", name: "순정형 원격시동", work: "마이키프리미엄 등 순정 키 연동 원격시동 설치", cases: "올뉴카니발, 올뉴모닝" },
+      { id: "smartkey", name: "스마트키", work: "차종에 맞는 스마트키 장치 설치", cases: "PV5" }
+    ]
+  },
+  {
+    id: "extra",
+    name: "전조등 · 기타 용품",
+    desc: "LED 전조등 튜닝과 사이드스텝 등 용품을 설치합니다.",
+    items: [
+      { id: "led", name: "LED 전조등 튜닝", work: "브라보 등 차종 전용 LED 전조등 장착", cases: "QM6 (H7)" },
+      { id: "sidestep", name: "사이드스텝", work: "차체에 맞는 사이드스텝 장착", cases: "차종별 상담" }
     ]
   }
 ];
@@ -41,16 +66,29 @@ const itemById = (id) => ALL_ITEMS.find((i) => i.id === id);
 
 const HOTSPOTS = [
   { id: "tint", x: 37.8, y: 42, part: "측면 유리" },
-  { id: "blackbox", x: 63, y: 39, part: "전면 유리 상단" },
-  { id: "navi", x: 71.5, y: 57, part: "대시보드" },
-  { id: "ppf", x: 87, y: 66, part: "후드 · 앞범퍼" },
-  { id: "coating", x: 38, y: 67, part: "도장면 전체" },
-  { id: "soundproof", x: 60, y: 69, part: "도어 · 바닥" },
-  { id: "rearcam", x: 8.5, y: 68, part: "트렁크 · 뒷범퍼" }
+  { id: "bb2ch", x: 63, y: 39, part: "전면 유리 상단" },
+  { id: "allinone", x: 71.5, y: 57, part: "대시보드" },
+  { id: "led", x: 89, y: 64, part: "전조등" },
+  { id: "remotephone", x: 60, y: 69, part: "시동 · 키" },
+  { id: "sidestep", x: 39, y: 76, part: "도어 하단" },
+  { id: "camswap", x: 8.5, y: 68, part: "트렁크 · 뒷범퍼" }
 ];
 
-const BRAND = "[상호명]";
+const CASES = [
+  ["retint", "더뉴모하비 썬팅 재시공"],
+  ["bbswap", "올뉴모닝 블랙박스 교체"],
+  ["camir", "마이티 적외선 후방카메라"],
+  ["allinone", "투싼 IX 안드로이드 올인원"],
+  ["remotephone", "포터2 LPG 원격시동"],
+  ["led", "QM6 LED 전조등 튜닝"],
+  ["tintremove", "아반떼 CN7 썬팅 전체 제거"],
+  ["avrepair", "코란도C 순정 AV 수리"],
+  ["bb4ch", "BMW X4 4채널 블랙박스"]
+];
+
+const BRAND = "준카오디오 안산점";
 const TEL = "000-0000-0000";
+const LOGO = `<svg class="brand-logo" viewBox="0 0 297 44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter" stroke-miterlimit="2"><path d="M36 3.5V28Q36 36 28 36H12Q4 36 4 28"/><path d="M54 3.5V28Q54 36 62 36H78Q86 36 86 28V3.5"/><path d="M104 40.5V8L136 36V3.5"/><path d="M190 8H164Q156 8 156 16V28Q156 36 164 36H190"/><path d="M208 40.5V16Q208 8 216 8H232Q240 8 240 16V40.5M208 26H240"/><path d="M258 40.5V8H284Q292 8 292 16V18Q292 26 284 26H258M276 26L292 40.5"/></g></svg>`;
 
 function renderChrome() {
   const page = document.body.dataset.page;
@@ -63,7 +101,7 @@ function renderChrome() {
     return url.href;
   };
   const themes = [["a", "A 작업 도면"], ["b", "B 쇼룸"], ["c", "C 전문점"]];
-  bar.innerHTML = `<span>디자인 시안입니다. 상호, 연락처, 품목, 사례, 접수 내역은 모두 예시입니다.</span>
+  bar.innerHTML = `<span>디자인 시안입니다. 품목은 블로그 기준 초안이고, 연락처와 접수 내역은 예시입니다.</span>
     <span class="switcher">${themes
       .map(([v, label]) => `<a href="${themeUrl(v)}" data-keep${v === theme ? ' aria-current="true"' : ""}>${label}</a>`)
       .join("")}</span>`;
@@ -87,7 +125,7 @@ function renderChrome() {
     ];
     head.className = "site-head";
     head.innerHTML = `<div class="wrap">
-      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>${BRAND}</a>
+      <a class="brand" href="index.html" aria-label="${BRAND} 홈">${LOGO}<span class="brand-name">${BRAND}</span></a>
       <nav class="nav" aria-label="주요 메뉴">${links
         .map(([href, label, key]) => `<a href="${href}"${key === page ? ' aria-current="page"' : ""}>${label}</a>`)
         .join("")}</nav>
@@ -99,10 +137,13 @@ function renderChrome() {
   if (foot) {
     foot.className = "site-foot";
     foot.innerHTML = `<div class="wrap">
-      <div><strong>${BRAND}</strong><br>[주소를 입력해 주세요]<br>영업시간 [입력 필요]</div>
+      <div><strong>${BRAND}</strong><br>[주소 입력 필요]<br>영업시간 [입력 필요]</div>
       <div>전화 ${TEL}<br>이메일 [입력 필요]<br><a href="admin.html">관리자 화면 시안 보기</a></div>
     </div>`;
   }
+
+  const adminBrand = document.querySelector("[data-admin-brand]");
+  if (adminBrand) adminBrand.innerHTML = `${LOGO}<span class="brand-name">관리</span>`;
 }
 
 function initCarMap() {
@@ -120,7 +161,7 @@ function initCarMap() {
       <p>${item.category}</p>
       <dl>
         <div><dt>작업 내용</dt><dd>${item.work}</dd></div>
-        <div><dt>시공 범위</dt><dd>${item.range}</dd></div>
+        <div><dt>작업 사례</dt><dd>${item.cases}</dd></div>
       </dl>
       <a class="btn btn-accent" href="quote.html?item=${item.id}">${item.name} 견적 신청</a>`;
   };
@@ -143,8 +184,8 @@ function initCarMap() {
 function initQuick() {
   const root = document.querySelector("[data-quick]");
   if (!root) return;
-  root.innerHTML = ["blackbox", "tint", "ppf", "coating", "navi", "soundproof"]
-    .map((id) => `<a href="quote.html?item=${id}">${itemById(id).name}</a>`)
+  root.innerHTML = ["tint", "bb2ch", "allinone", "camswap", "remotephone", "led"]
+    .map((id) => `<a href="quote.html?item=${id}">${itemById(id).category.split(" · ")[0]}</a>`)
     .join("");
 }
 
@@ -168,10 +209,10 @@ function initServices() {
     (c) => `<section class="svc-block" id="${c.id}"><div class="wrap svc-grid">
       <div class="side"><div><h2>${c.name}</h2><p>${c.desc}</p></div></div>
       <table class="svc-table">
-        <thead><tr><th scope="col">품목</th><th scope="col">작업 내용</th><th scope="col">시공 가능 범위</th><th scope="col"><span hidden>신청</span></th></tr></thead>
+        <thead><tr><th scope="col">품목</th><th scope="col">작업 내용</th><th scope="col">작업 사례</th><th scope="col"><span hidden>신청</span></th></tr></thead>
         <tbody>${c.items
           .map(
-            (it) => `<tr><th scope="row">${it.name}</th><td>${it.work}</td><td>${it.range}</td>
+            (it) => `<tr><th scope="row">${it.name}</th><td>${it.work}</td><td>${it.cases}</td>
             <td><a class="btn btn-sm" href="quote.html?item=${it.id}">견적 신청</a></td></tr>`
           )
           .join("")}</tbody>
@@ -180,19 +221,19 @@ function initServices() {
   ).join("");
 }
 
-function caseCard(item, n) {
+function caseCard([id, title]) {
+  const item = itemById(id);
   return `<article class="case" data-cat="${item.categoryId}">
     <div class="pair"><div class="ph">시공 전<br>사진 자리</div><div class="ph">시공 후<br>사진 자리</div></div>
-    <div class="case-body"><span class="mono">${item.category}</span><h3>${item.name} 시공 사례 ${n}</h3><p>차종과 작업 설명이 들어갑니다.</p></div>
+    <div class="case-body"><span class="mono">${item.category}</span><h3>${title}</h3><p>블로그 사진과 설명이 들어갈 자리입니다.</p></div>
   </article>`;
 }
 
 function initCases() {
   const root = document.querySelector("[data-cases]");
   if (!root) return;
-  const limit = Number(root.dataset.cases) || ALL_ITEMS.length;
-  const picks = ["tint", "ppf", "blackbox", "soundproof", "coating", "audio", "seat", "navi", "ambient"].slice(0, limit);
-  root.innerHTML = picks.map((id, i) => caseCard(itemById(id), i + 1)).join("");
+  const limit = Number(root.dataset.cases) || CASES.length;
+  root.innerHTML = CASES.slice(0, limit).map(caseCard).join("");
 
   const chips = document.querySelector("[data-case-filter]");
   if (!chips) return;
@@ -308,11 +349,11 @@ function initAdmin() {
   );
 
   const rows = [
-    ["11.04 14:20", "김OO", "010-****-1234", "현대 아반떼 / 2024", "틴팅, 블랙박스", "11.08", "new"],
-    ["11.04 09:02", "이OO", "010-****-5678", "기아 쏘렌토 / 2025", "PPF, 유리막 코팅", "11.12", "new"],
-    ["11.03 18:44", "박OO", "010-****-9012", "제네시스 G80 / 2023", "상담 후 결정", "미정", "new"],
-    ["11.03 11:15", "최OO", "010-****-3456", "BMW 320i / 2022", "방음, 오디오", "11.06", "talk"],
-    ["11.01 16:30", "정OO", "010-****-7890", "테슬라 모델Y / 2025", "틴팅", "11.03", "done"]
+    ["11.04 14:20", "김OO", "010-****-1234", "현대 아반떼 / 2024", "썬팅 시공, 2채널 블랙박스", "11.08", "new"],
+    ["11.04 09:02", "이OO", "010-****-5678", "현대 포터2 / 2021", "화물차 카메라 · 모니터", "11.12", "new"],
+    ["11.03 18:44", "박OO", "010-****-9012", "기아 카니발 / 2019", "상담 후 결정", "미정", "new"],
+    ["11.03 11:15", "최OO", "010-****-3456", "쌍용 코란도C / 2015", "순정 AV 수리", "11.06", "talk"],
+    ["11.01 16:30", "정OO", "010-****-7890", "기아 모닝 / 2020", "순정형 원격시동", "11.03", "done"]
   ];
   const labels = { new: "신규", talk: "상담중", done: "완료" };
   const body = root.querySelector("[data-rows]");
@@ -344,8 +385,8 @@ function initAdmin() {
     (it) => `<tr><td>${it.category}</td><td><b>${it.name}</b></td><td>${it.work}</td><td><button type="button" class="btn btn-sm">수정</button></td></tr>`
   ).join("");
   root.querySelector("[data-admin-cases]").innerHTML =
-    `<button type="button" class="upload-box">+ 시공 사례 올리기</button>` +
-    ["tint", "ppf", "blackbox"].map((id, i) => caseCard(itemById(id), i + 1)).join("");
+    `<button type="button" class="upload-box">+ 시공 사례 올리기</button>` + CASES.slice(0, 3).map(caseCard).join("");
+  root.querySelector("#s-name").value = BRAND;
 }
 
 renderChrome();

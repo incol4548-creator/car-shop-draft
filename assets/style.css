@@ -17,7 +17,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--paper);
@@ -49,8 +49,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .site-head { background: var(--paper); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
 .site-head .wrap { display: flex; align-items: center; gap: 28px; min-height: 66px; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; }
-.brand-mark { width: 26px; height: 26px; border: 3px solid var(--ink); border-radius: 50%; position: relative; flex: none; }
-.brand-mark::after { content: ""; position: absolute; inset: 5px; background: var(--accent); border-radius: 50%; }
+.brand-logo { display: block; height: 17px; width: auto; flex: none; }
+.brand-name { padding-left: 10px; border-left: 1.5px solid currentColor; font-size: 15px; font-weight: 700; line-height: 1.2; white-space: nowrap; }
 .nav { display: flex; gap: 24px; margin-left: auto; }
 .nav a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--muted); padding: 6px 0; border-bottom: 2px solid transparent; }
 .nav a:hover { color: var(--ink); }
@@ -229,7 +229,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .admin { display: grid; grid-template-columns: 220px 1fr; min-height: calc(100vh - 33px); background: #eceae4; }
 .admin-side { background: var(--dark); color: #fff; padding: 22px 14px; }
 .admin-side .brand { padding: 0 8px; margin-bottom: 24px; font-size: 16px; }
-.admin-side .brand-mark { border-color: #fff; }
 .admin-tab { display: flex; justify-content: space-between; align-items: center; width: 100%; min-height: 44px; padding: 0 12px; margin-bottom: 4px; border: 0; border-radius: 4px; background: transparent; color: var(--dark-muted); font-weight: 600; text-align: left; cursor: pointer; }
 .admin-tab:hover { color: #fff; }
 .admin-tab[aria-selected="true"] { background: var(--dark-2); color: #fff; }
